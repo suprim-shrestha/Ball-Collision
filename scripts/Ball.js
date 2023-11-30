@@ -128,7 +128,7 @@ class Ball {
       this.x += overlapX;
       this.y += overlapY;
       ball.x -= overlapX;
-      ball.y == overlapY;
+      ball.y -= overlapY;
     }
   };
 }
