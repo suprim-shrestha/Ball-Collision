@@ -63,7 +63,7 @@ class Ball {
   };
 
   /**
-   * Change position of ball
+   * Set position of ball
    */
   draw = () => {
     this.element.style.left = this.x + "px";
@@ -71,7 +71,7 @@ class Ball {
   };
 
   /**
-   * Move ball to
+   * Move ball to set position
    */
   move = () => {
     this.x += this.dx * SPEED;
@@ -107,7 +107,7 @@ class Ball {
   /**
    * Check collision with another ball and invert direction of both balls if collided
    *
-   * @param {number} ball
+   * @param {Ball} ball
    */
   checkBallCollision = (ball) => {
     const dist = distance(this.x, this.y, ball.x, ball.y);
@@ -121,14 +121,14 @@ class Ball {
       ball.dx *= -1;
       ball.dx *= -1;
 
-      let penetration = sumOfRadii - dist;
-      const penetrationX = ((this.x - ball.x) / dist) * penetration * 0.5;
-      const penetrationY = ((this.y - ball.y) / dist) * penetration * 0.5;
+      const overlap = sumOfRadii - dist;
+      const overlapX = ((this.x - ball.x) / dist) * overlap * 0.5;
+      const overlapY = ((this.y - ball.y) / dist) * overlap * 0.5;
 
-      this.x += penetrationX;
-      this.y += penetrationY;
-      ball.x -= penetrationX;
-      ball.y == penetrationY;
+      this.x += overlapX;
+      this.y += overlapY;
+      ball.x -= overlapX;
+      ball.y == overlapY;
     }
   };
 }
