@@ -115,11 +115,20 @@ class Ball {
     const sumOfRadii = this.r + ball.r;
 
     if (dist <= sumOfRadii) {
-      this.dx *= -1;
-      this.dy *= -1;
+      //   this.dx *= -1;
+      //   this.dy *= -1;
 
-      ball.dx *= -1;
-      ball.dx *= -1;
+      //   ball.dx *= -1;
+      //   ball.dx *= -1;
+
+      const tx = this.dx;
+      const ty = this.dy;
+
+      this.dx = ball.dx;
+      this.dy = ball.dy;
+
+      ball.dx = tx;
+      ball.dy = ty;
 
       const overlap = sumOfRadii - dist;
       const overlapX = ((this.x - ball.x) / dist) * overlap * 0.5;
