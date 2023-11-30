@@ -26,12 +26,13 @@ function render() {
   ballsArr.forEach((ball) => {
     ball.draw();
     ball.move();
-    ball.checkWallCollision(0, 0, VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 
     ballsArr.forEach((otherBall) => {
       if (ball === otherBall) return;
       ball.checkBallCollision(otherBall);
     });
+
+    ball.checkWallCollision(0, 0, VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
   });
   requestAnimationFrame(render);
 }

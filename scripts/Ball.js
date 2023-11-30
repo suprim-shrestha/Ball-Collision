@@ -120,6 +120,15 @@ class Ball {
 
       ball.dx *= -1;
       ball.dx *= -1;
+
+      let penetration = sumOfRadii - dist;
+      const penetrationX = ((this.x - ball.x) / dist) * penetration * 0.5;
+      const penetrationY = ((this.y - ball.y) / dist) * penetration * 0.5;
+
+      this.x += penetrationX;
+      this.y += penetrationY;
+      ball.x -= penetrationX;
+      ball.y == penetrationY;
     }
   };
 }

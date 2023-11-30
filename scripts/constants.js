@@ -1,5 +1,5 @@
-const BALL_COUNT = 50;
-const SPEED = 3;
+const BALL_COUNT = 500;
+const SPEED = 5;
 
 const VIEWPORT_WIDTH = 1000;
 const VIEWPORT_HEIGHT = 700;
