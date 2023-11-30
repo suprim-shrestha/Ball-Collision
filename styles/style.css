@@ -1,0 +1,14 @@
+.container {
+  width: 1000px;
+  height: 700px;
+  border: 1px solid #000;
+  margin: 50px auto;
+  position: relative;
+}
+
+.ball {
+  aspect-ratio: 1;
+  background: #49c;
+  position: absolute;
+  border-radius: 50%;
+}
