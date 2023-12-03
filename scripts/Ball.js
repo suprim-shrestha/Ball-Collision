@@ -31,38 +31,6 @@ class Ball {
   getElement = () => this.element;
 
   /**
-   * Returns x position of ball
-   *
-   * @returns number
-   */
-  getX = () => this.x;
-
-  /**
-   * Returns y position of ball
-   *
-   * @returns number
-   */
-  getY = () => this.y;
-
-  /**
-   * Set x position of ball
-   *
-   * @param {number} x
-   */
-  setX = (x) => {
-    this.x = x;
-  };
-
-  /**
-   * Set y position of ball
-   *
-   * @param {number} y
-   */
-  setY = (y) => {
-    this.y = y;
-  };
-
-  /**
    * Set position of ball
    */
   draw = () => {
@@ -105,7 +73,7 @@ class Ball {
   };
 
   /**
-   * Check collision with another ball and invert direction of both balls if collided
+   * Checks collision between two balls and swaps direction when collided
    *
    * @param {Ball} ball
    */
@@ -115,12 +83,6 @@ class Ball {
     const sumOfRadii = this.r + ball.r;
 
     if (dist <= sumOfRadii) {
-      //   this.dx *= -1;
-      //   this.dy *= -1;
-
-      //   ball.dx *= -1;
-      //   ball.dx *= -1;
-
       const tx = this.dx;
       const ty = this.dy;
 
