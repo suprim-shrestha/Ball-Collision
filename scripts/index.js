@@ -21,19 +21,28 @@ ballsArr.forEach((ball) => {
   viewport.appendChild(ball.getElement());
 });
 
+let lastRenderTime = 0;
+let framerate = 60;
+
 // Function to draw and move balls and check collision
-function render() {
-  ballsArr.forEach((ball) => {
-    ball.draw();
-    ball.move();
+function render(currentTime) {
+  // Set framerate to 60fps
+  const timeSinceLastRender = currentTime - lastRenderTime;
+  if (timeSinceLastRender > 1000 / framerate) {
+    lastRenderTime = currentTime;
+    ballsArr.forEach((ball) => {
+      ball.draw();
+      ball.move();
 
-    ballsArr.forEach((otherBall) => {
-      if (ball === otherBall) return;
-      ball.checkBallCollision(otherBall);
+      ballsArr.forEach((otherBall) => {
+        if (ball === otherBall) return;
+        ball.checkBallCollision(otherBall);
+      });
+
+      ball.checkWallCollision(0, 0, VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
     });
+  }
 
-    ball.checkWallCollision(0, 0, VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
-  });
   requestAnimationFrame(render);
 }
 
